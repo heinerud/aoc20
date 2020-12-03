@@ -11,9 +11,11 @@ def parse_input(rows):
 
 
 if __name__ == "__main__":
-    valid_1 = 0
-    valid_2 = 0
-    for lower, upper, letter, password in parse_input(sys.stdin):
+    with open(sys.argv[1]) as f:
+        input_lines = f.readlines()
+
+    valid_1 = valid_2 = 0
+    for lower, upper, letter, password in parse_input(input_lines):
         if lower <= password.count(letter) <= upper:
             valid_1 += 1
 

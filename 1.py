@@ -13,7 +13,8 @@ def sum2020(entries, num):
 
 
 if __name__ == "__main__":
-    entries = [int(x) for x in sys.stdin]
+    with open(sys.argv[1]) as f:
+        entries = [int(x) for x in f.readlines()]
 
     sum_2 = sum2020(entries, 2)
     print(sum_2, reduce(mul, sum_2))

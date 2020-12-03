@@ -16,7 +16,9 @@ def traverse(slope, v_x, v_y):
 
 
 if __name__ == "__main__":
-    slope = [x.strip() for x in sys.stdin]
+    with open(sys.argv[1]) as f:
+        slope = [x.strip() for x in f.readlines()]
+
     print(traverse(slope, 3, 1))
     print(
         traverse(slope, 1, 1)
