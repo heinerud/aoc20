@@ -21,5 +21,5 @@ if __name__ == "__main__":
     ids = [r * 8 + c for r, c in seats]
     print(max(ids))
 
-    all_seats = range(min(ids), max(ids))
+    all_seats = range(min(ids), max(ids) + 1)
     print(set(all_seats) - set(ids))
