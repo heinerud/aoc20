@@ -3,22 +3,17 @@
 import sys
 
 
-def seat(s):
-    s = s.replace("F", "0")
-    s = s.replace("B", "1")
-    s = s.replace("L", "0")
-    s = s.replace("R", "1")
-    row = s[:7]
-    col = s[7:]
-    return int(row, 2), int(col, 2)
+def id(s):
+    for x in [("F", "0"), ("B", "1"), ("L", "0"), ("R", "1")]:
+        s = s.replace(*x)
+    return int(s, 2)
 
 
 if __name__ == "__main__":
     with open(sys.argv[1]) as f:
         lines = [x.strip() for x in f.readlines()]
 
-    seats = [seat(x) for x in lines]
-    ids = [r * 8 + c for r, c in seats]
+    ids = [id(x) for x in lines]
     print(max(ids))
 
     all_seats = range(min(ids), max(ids) + 1)
