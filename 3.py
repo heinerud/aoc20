@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-
-import sys
-
-
 def traverse(slope, v_x, v_y):
     x = y = hits = 0
     while y < len(slope):
@@ -16,7 +11,7 @@ def traverse(slope, v_x, v_y):
 
 
 if __name__ == "__main__":
-    with open(sys.argv[1]) as f:
+    with open("3.in") as f:
         slope = [x.strip() for x in f.readlines()]
 
     print(traverse(slope, 3, 1))

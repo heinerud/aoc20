@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-
-import sys
-
-
 def run(program):
     acc = 0
     p = 0
@@ -34,7 +29,7 @@ def swap(x):
 
 
 if __name__ == "__main__":
-    with open(sys.argv[1]) as f:
+    with open("8.in") as f:
         lines = [x.strip() for x in f.readlines()]
 
     program = [(x, int(n)) for x, n in [l.split() for l in lines]]

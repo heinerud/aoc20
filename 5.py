@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-
-import sys
-
-
 def id(s):
     for x in [("F", "0"), ("B", "1"), ("L", "0"), ("R", "1")]:
         s = s.replace(*x)
@@ -10,7 +5,7 @@ def id(s):
 
 
 if __name__ == "__main__":
-    with open(sys.argv[1]) as f:
+    with open("5.in") as f:
         lines = [x.strip() for x in f.readlines()]
 
     ids = [id(x) for x in lines]

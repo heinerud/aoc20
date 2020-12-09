@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-
-import sys
-
-
 def passport(*, byr, iyr, eyr, hgt, hcl, ecl, pid, cid=None):
     if len(byr) != 4 or not 1920 <= int(byr) <= 2002:
         return False
@@ -35,7 +30,7 @@ def passport(*, byr, iyr, eyr, hgt, hcl, ecl, pid, cid=None):
 
 
 if __name__ == "__main__":
-    with open(sys.argv[1]) as f:
+    with open("4.in") as f:
         lines = [x.strip() for x in f.readlines()]
 
     entries = []

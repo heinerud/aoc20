@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-
-import sys
-
-
 def parse_input(rows):
     for x in rows:
         limits, letter, password = x.split()
@@ -11,7 +6,7 @@ def parse_input(rows):
 
 
 if __name__ == "__main__":
-    with open(sys.argv[1]) as f:
+    with open("2.in") as f:
         input_lines = f.readlines()
 
     valid_1 = valid_2 = 0

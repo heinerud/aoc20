@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-
-import sys
 import re
 
 
@@ -24,7 +21,7 @@ def num_bags(rules, bag):
 
 
 if __name__ == "__main__":
-    with open(sys.argv[1]) as f:
+    with open("7.in") as f:
         lines = [x.strip() for x in f.readlines()]
 
     rules = {}

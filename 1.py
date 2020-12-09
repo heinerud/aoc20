@@ -1,9 +1,6 @@
-#!/usr/bin/env python3
-
 from functools import reduce
 from itertools import combinations
 from operator import mul
-import sys
 
 
 def sum2020(entries, num):
@@ -13,7 +10,7 @@ def sum2020(entries, num):
 
 
 if __name__ == "__main__":
-    with open(sys.argv[1]) as f:
+    with open("1.in") as f:
         entries = [int(x) for x in f.readlines()]
 
     sum_2 = sum2020(entries, 2)
