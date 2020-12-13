@@ -15,9 +15,10 @@ def next_departure(time, buses):
 
 
 def match_series(series):
+    series.sort(key=lambda x: x[0], reverse=True)
     t = 0
-    step = series[0][1]
-    for offset, bus in series[1:]:
+    step = 1
+    for offset, bus in series:
         for n in itertools.count():
             if (t + offset + step * n) % bus == 0:
                 t += n * step
