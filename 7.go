@@ -20,7 +20,7 @@ func contains(rules map[string][]Content, bag string) (hits map[string]string) {
 		for _, x := range v {
 			if bag == x.color {
 				hits[k] = k
-				for k, _ := range contains(rules, k) {
+				for k := range contains(rules, k) {
 					hits[k] = k
 				}
 			}
