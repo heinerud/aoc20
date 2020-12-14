@@ -36,11 +36,9 @@ func matchSeries(series []Entry) int {
 	t := 0
 	step := 1
 	for _, x := range series {
-		n := 0
-		for (t+x.offset+step*n)%x.bus != 0 {
-			n++
+		for (t+x.offset)%x.bus != 0 {
+			t += step
 		}
-		t += n * step
 		step *= x.bus
 	}
 	return t

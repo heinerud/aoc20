@@ -19,11 +19,9 @@ def match_series(series):
     t = 0
     step = 1
     for offset, bus in series:
-        for n in itertools.count():
-            if (t + offset + step * n) % bus == 0:
-                t += n * step
-                step *= bus
-                break
+        while (t + offset) % bus:
+            t += step
+        step *= bus
 
     return t
 
