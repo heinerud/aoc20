@@ -1,37 +1,23 @@
-import itertools
+def game(input, turns):
+    numbers = {}
+    for i, x in enumerate(input):
+        numbers[x] = i + 1
 
+    speak = 0
+    for turn in range(len(input) + 1, turns):
+        spoken = speak
+        if spoken in numbers:
+            speak = turn - numbers[spoken]
+        else:
+            speak = 0
 
-class Memory:
-    def __init__(self, turn):
-        self.first = turn
-        self.last = turn
+        numbers[spoken] = turn
 
-    @property
-    def age(self):
-        return self.last - self.first
-
-    def add(self, turn):
-        self.first, self.last = self.last, turn
+    return speak
 
 
 if __name__ == "__main__":
     input = [20, 9, 11, 0, 1, 2]
 
-    numbers = {}
-    for i, x in enumerate(input):
-        numbers[x] = Memory(i + 1)
-
-    s = input[-1]
-    for turn in itertools.count(len(input) + 1):
-        s = numbers[s].age
-        try:
-            numbers[s].add(turn)
-        except KeyError:
-            numbers[s] = Memory(turn)
-
-        if turn == 2020:
-            print(s)
-
-        if turn == 30000000:
-            print(s)
-            break
+    print(game(input, 2020))
+    print(game(input, 30000000))

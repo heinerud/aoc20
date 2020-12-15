@@ -4,40 +4,29 @@ import (
 	"fmt"
 )
 
-type Memory struct {
-	first int
-	last  int
-}
+func game(input []int, turns int) int {
+	numbers := make(map[int]int, len(input))
+	for i, x := range input {
+		numbers[x] = i + 1
+	}
 
-func (m Memory) age() int {
-	return m.last - m.first
-}
+	speak := 0
+	for turn := len(input) + 1; turn < turns; turn++ {
+		spoken := speak
+		if _, ok := numbers[spoken]; ok {
+			speak = turn - numbers[spoken]
+		} else {
+			speak = 0
+		}
 
-func (m Memory) add(turn int) Memory {
-	return Memory{m.last, turn}
+		numbers[spoken] = turn
+	}
+
+	return speak
 }
 
 func main() {
 	input := []int{20, 9, 11, 0, 1, 2}
-	numbers := make(map[int]Memory, len(input))
-
-	for i, x := range input {
-		numbers[x] = Memory{i + 1, i + 1}
-	}
-
-	s := input[len(input)-1]
-	for i := len(input) + 1; i <= 30000000; i++ {
-		s = numbers[s].age()
-		if _, ok := numbers[s]; !ok {
-			numbers[s] = Memory{i, i}
-		} else {
-			numbers[s] = numbers[s].add(i)
-		}
-
-		if i == 2020 {
-			fmt.Println(s)
-		}
-	}
-	fmt.Println(s)
-
+	fmt.Println(game(input, 2020))
+	fmt.Println(game(input, 30000000))
 }
