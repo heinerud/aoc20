@@ -13,7 +13,6 @@ def iterate(world):
     deactivate = set()
     for x in world:
         active_neighbors = 0
-        inactive_neighbors = set()
         for n in neighbors(*x):
             if n in world:
                 active_neighbors += 1
